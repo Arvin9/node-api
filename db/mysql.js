@@ -5,7 +5,7 @@ var pool  = mysql.createPool({
     user            : 'root',
     password        : '314159',
     database        : 'api',
-    charset         : 'utf8_general_ci',
+    charset         : 'UTF8_GENERAL_CI',
     port            : 3306
 });
 
