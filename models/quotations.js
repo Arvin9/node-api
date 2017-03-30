@@ -17,9 +17,7 @@ quotations.queryByParame = function(id,offset,limit,callback){
 
     query(sql,function(err,vals,fields){
         //do something
-        vals.map(function(val){
-            val.add_time = moment(val.add_time).format('YYYY-MM-DD HH:mm:ss');
-        });
+        
         callback(vals);
     });
 }
