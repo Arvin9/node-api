@@ -1,9 +1,8 @@
 var query = require("../db/mysql.js");
 
-var quotations = {};
-
-quotations.queryByParame = function(id,offset,limit,callback){
-    let sql = "SELECT * FROM quotations ";
+var digests = {};
+digests.queryByParame = function(id,offset,limit,callback){
+    let sql = "SELECT * FROM digest ";
     if(id){
         sql += "WHERE id = " + id + " ";
     }
@@ -21,4 +20,4 @@ quotations.queryByParame = function(id,offset,limit,callback){
     });
 }
 
-module.exports = quotations;
+module.exports = digests;
