@@ -41,5 +41,18 @@ router.put('/:id', function(req, res) {
         res.send(rows);
     });
 });
+//根据id进行删除
+router.delete('/:id', function(req, res) {
+    let id = req.params.id;
+    if(!id) res.status(400).json({statu:400,message:'id不能为空'});
+
+    digests.delete(id,function(rows){
+        console.log(rows.affectedRows);
+        if(rows.affectedRows == 0)
+            res.send({statu:400,message:'删除数据失败'});
+        else
+            res.send({statu:204,message:'删除数据成功'});
+    });
+});
 
 module.exports = router;

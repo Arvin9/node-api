@@ -62,4 +62,12 @@ digests.update = function(id,title,content,provenance,read_quantity,callback){
         callback(vals);
     });
 }
+digests.delete = function(id,callback){
+    let sql = "DELETE FROM digests WHERE id = " + id;
+    query(sql,function(err,vals,fields){
+        //do something
+        if(err) callback(err);
+        callback(vals);
+    });
+}
 module.exports = digests;
