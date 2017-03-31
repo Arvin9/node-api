@@ -16,4 +16,30 @@ router.get('/', function(req, res) {
     });
 });
 
+router.post('/', function(req, res) {
+    let title = req.body.title;
+    let content = req.body.content;
+    let provenance = req.body.provenance;
+    if(!title)      res.status(400).json({statu:400,message:'title不能为空'});
+    if(!content)    res.status(400).json({statu:400,message:'content不能为空'});
+    if(!provenance) res.status(400).json({statu:400,message:'provenance不能为空'});
+
+    digests.create(title,content,provenance,function(rows){
+        res.send(rows);
+    });
+});
+// 根据id进行更新
+router.put('/:id', function(req, res) {
+    let id = req.params.id;
+    if(!id) res.status(400).json({statu:400,message:'id不能为空'});
+    let title         = req.body.title;
+    let content       = req.body.content;
+    let provenance    = req.body.provenance;
+    let read_quantity = req.body.read_quantity;
+
+    digests.update(id,title,content,provenance,read_quantity,function(rows){
+        res.send(rows);
+    });
+});
+
 module.exports = router;

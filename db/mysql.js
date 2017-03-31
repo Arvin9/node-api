@@ -7,6 +7,7 @@ var pool  = mysql.createPool({
     database        : 'api',
     charset         : 'UTF8_GENERAL_CI',
     dateStrings     : true,
+    debug           : true,
     port            : 3306
 });
 
